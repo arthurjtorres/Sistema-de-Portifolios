@@ -16,3 +16,32 @@ bin-release/
 # Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
 # should NOT be excluded as they contain compiler settings and other important
 # information for Eclipse / Flash Builder.
+
+# --- Node / Vite (Portfolio Manager) ---
+node_modules/
+dist/
+coverage/
+*.local
+*.log
+.vite/
+
+# Variáveis de ambiente (nunca versionar valores reais)
+.env
+.env.*
+!.env.example
+
+# Firebase
+.firebase/
+.firebaserc
+firebase-debug.log*
+firestore-debug.log*
+ui-debug.log*
+database-debug.log*
+storage-debug.log*
+
+# Editor / SO
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json

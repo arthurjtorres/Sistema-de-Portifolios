@@ -1,0 +1,70 @@
+@import 'tailwindcss';
+
+/*
+ * Tokens de design. Toda cor/fonte usada nos componentes deve vir daqui
+ * (ex.: bg-paper, text-ink, border-line, bg-accent, font-display).
+ */
+@theme {
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #1d2433;
+  --color-ink-soft: #3f4a5f;
+  --color-muted: #646d80;
+  --color-line: #d9dde5;
+  --color-line-strong: #b9c0cd;
+  --color-paper: #f2f4f7;
+  --color-surface: #ffffff;
+
+  --color-accent: #3346d3;
+  --color-accent-strong: #2635a8;
+  --color-accent-soft: #e7eafb;
+
+  --color-danger: #b42318;
+  --color-danger-soft: #fdecea;
+  --color-success: #1e7a4f;
+  --color-success-soft: #e6f4ec;
+  --color-warning: #8a5300;
+  --color-warning-soft: #fdf3e2;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display text-ink;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  dialog::backdrop {
+    background: rgb(29 36 51 / 0.45);
+  }
+}

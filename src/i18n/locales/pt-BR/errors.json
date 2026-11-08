@@ -1,0 +1,22 @@
+{
+  "invalidCredentials": "E-mail ou senha incorretos.",
+  "emailInUse": "Já existe uma conta com esse e-mail. Entre ou recupere a senha.",
+  "weakPassword": "A senha não atende aos requisitos mínimos de segurança.",
+  "invalidEmail": "Esse e-mail não é válido.",
+  "userDisabled": "Esta conta foi desativada.",
+  "tooManyRequests": "Muitas tentativas seguidas. Aguarde alguns minutos e tente de novo.",
+  "network": "Falha de conexão. Verifique sua internet e tente de novo.",
+  "unauthenticated": "Sua sessão expirou. Entre novamente.",
+  "permissionDenied": "Você não tem permissão para acessar este conteúdo.",
+  "notFound": "O conteúdo não foi encontrado. Ele pode ter sido excluído.",
+  "unavailable": "O serviço está indisponível no momento. Tente de novo em instantes.",
+  "quotaExceeded": "O limite de uso foi atingido. Tente mais tarde.",
+  "uploadCanceled": "O envio da imagem foi cancelado.",
+  "uploadFailed": "Não foi possível enviar a imagem. Tente de novo.",
+  "invalidFileType": "Formato não aceito. Use JPEG, PNG ou WebP.",
+  "fileTooLarge": "A imagem passa do limite de {{size}} MB.",
+  "tooManyImages": "Limite de {{max}} imagens adicionais atingido.",
+  "portfolioHasProjects": "Este portfólio ainda tem projetos. Mova-os para outro portfólio ou exclua-os antes de excluir o portfólio.",
+  "portfolioNotFound": "O portfólio selecionado não existe mais. Escolha outro.",
+  "unknown": "Algo deu errado. Tente de novo."
+}

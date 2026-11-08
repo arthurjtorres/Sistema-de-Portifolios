@@ -1,0 +1,52 @@
+{
+  "list": {
+    "title": "Portfólios",
+    "description": "Coleções de projetos com um propósito. Use as setas para definir a ordem.",
+    "new": "Novo portfólio",
+    "loadError": "Não foi possível carregar os portfólios.",
+    "reorderFailed": "Não foi possível alterar a ordem. Tente novamente.",
+    "empty": {
+      "title": "Nenhum portfólio ainda",
+      "description": "Crie um portfólio para começar a agrupar seus projetos.",
+      "action": "Criar portfólio"
+    }
+  },
+  "card": {
+    "open": "Abrir {{name}}",
+    "noDescription": "Sem descrição"
+  },
+  "detail": {
+    "projectsTitle": "Projetos",
+    "addProject": "Adicionar projeto",
+    "loadError": "Não foi possível carregar este portfólio.",
+    "notFound": "Este portfólio não existe ou foi excluído.",
+    "backToList": "Todos os portfólios",
+    "emptyProjects": {
+      "title": "Nenhum projeto neste portfólio",
+      "description": "Adicione projetos para montar este portfólio.",
+      "action": "Adicionar projeto"
+    }
+  },
+  "form": {
+    "createTitle": "Novo portfólio",
+    "editTitle": "Editar portfólio",
+    "name": "Nome",
+    "namePlaceholder": "Ex.: Design de produto",
+    "description": "Descrição",
+    "descriptionHint": "Opcional. Até {{max}} caracteres.",
+    "cover": "Imagem de capa",
+    "submitCreate": "Criar portfólio",
+    "submitEdit": "Salvar alterações"
+  },
+  "delete": {
+    "action": "Excluir portfólio",
+    "title": "Excluir “{{name}}”?",
+    "description": "O portfólio e a imagem de capa serão excluídos permanentemente. Essa ação não pode ser desfeita.",
+    "confirm": "Excluir portfólio"
+  },
+  "toast": {
+    "created": "Portfólio criado.",
+    "updated": "Alterações salvas.",
+    "deleted": "Portfólio excluído."
+  }
+}

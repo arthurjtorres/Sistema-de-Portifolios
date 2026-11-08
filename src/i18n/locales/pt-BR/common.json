@@ -1,0 +1,50 @@
+{
+  "app": {
+    "name": "Portfolio Manager",
+    "tagline": "Seus trabalhos, organizados por portfólio."
+  },
+  "nav": {
+    "mainNavigation": "Navegação principal",
+    "dashboard": "Painel",
+    "portfolios": "Portfólios",
+    "projects": "Projetos",
+    "signOut": "Sair",
+    "signingOut": "Saindo…",
+    "skipToContent": "Pular para o conteúdo"
+  },
+  "actions": {
+    "cancel": "Cancelar",
+    "delete": "Excluir",
+    "edit": "Editar",
+    "back": "Voltar",
+    "retry": "Tentar novamente",
+    "close": "Fechar",
+    "moveUp": "Mover “{{name}}” para cima",
+    "moveDown": "Mover “{{name}}” para baixo",
+    "viewAll": "Ver todos"
+  },
+  "states": {
+    "loading": "Carregando…",
+    "offline": "Sem conexão. Você pode continuar vendo o que já está na tela; salvar e carregar novos dados volta a funcionar quando a conexão retornar.",
+    "offlineSubmit": "Reconecte-se para salvar.",
+    "updatedAt": "Atualizado em {{date}}"
+  },
+  "validation": {
+    "required": "Preencha este campo.",
+    "minLength": "Use pelo menos {{min}} caracteres.",
+    "maxLength": "Use no máximo {{max}} caracteres.",
+    "email": "Informe um e-mail válido, como nome@exemplo.com.",
+    "url": "Informe um endereço completo, começando com http:// ou https://.",
+    "passwordMismatch": "As senhas não coincidem."
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "description": "O endereço pode ter mudado ou o conteúdo foi excluído.",
+    "action": "Ir para o painel"
+  },
+  "config": {
+    "title": "Configuração do Firebase ausente",
+    "description": "Defina as variáveis abaixo em um arquivo .env.local na raiz do projeto e reinicie o servidor de desenvolvimento.",
+    "docs": "O passo a passo está em docs/FIREBASE.md."
+  }
+}

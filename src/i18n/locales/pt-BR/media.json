@@ -1,0 +1,20 @@
+{
+  "hint": "JPEG, PNG ou WebP, até {{size}} MB por arquivo.",
+  "cover": {
+    "choose": "Escolher imagem",
+    "replace": "Trocar imagem",
+    "remove": "Remover imagem",
+    "previewAlt": "Pré-visualização da capa"
+  },
+  "gallery": {
+    "add": "Adicionar imagens",
+    "remove": "Remover imagem {{index}}",
+    "count": "{{count}} de {{max}}",
+    "previewAlt": "Imagem {{index}}"
+  },
+  "uploading": "Enviando imagens: {{percent}}%",
+  "alt": {
+    "cover": "Capa de {{name}}",
+    "gallery": "Imagem {{index}} de {{name}}"
+  }
+}

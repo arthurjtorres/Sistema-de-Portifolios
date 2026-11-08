@@ -1,0 +1,33 @@
+rules_version = '2';
+
+// Security Rules do Firebase Storage — Portfolio Manager.
+// Arquivos ficam em users/{uid}/{portfolios|projects}/{resourceId}/{fileName}.
+// Limites espelham src/config/media.ts (MEDIA_LIMITS). Ao alterar um, altere o outro.
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    function isAllowedKind(kind) {
+      return kind == 'portfolios' || kind == 'projects';
+    }
+
+    // 5 MB; somente JPEG, PNG e WebP.
+    function isAllowedImageUpload() {
+      return request.resource.size <= 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/(jpeg|png|webp)');
+    }
+
+    match /users/{uid}/{kind}/{resourceId}/{fileName} {
+      allow read: if isOwner(uid) && isAllowedKind(kind);
+      allow create: if isOwner(uid) && isAllowedKind(kind) && isAllowedImageUpload();
+      // Arquivos são imutáveis: substituir = enviar novo arquivo com novo nome e excluir o antigo.
+      allow update: if false;
+      allow delete: if isOwner(uid) && isAllowedKind(kind);
+    }
+
+    // Qualquer outro caminho é negado implicitamente.
+  }
+}

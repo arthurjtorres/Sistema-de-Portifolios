@@ -1,0 +1,28 @@
+{
+  "title": "Painel",
+  "greeting": "Olá, {{name}}",
+  "greetingFallback": "Olá",
+  "portfolioCount_one": "{{count}} portfólio",
+  "portfolioCount_many": "{{count}} portfólios",
+  "portfolioCount_other": "{{count}} portfólios",
+  "projectCount_one": "{{count}} projeto",
+  "projectCount_many": "{{count}} projetos",
+  "projectCount_other": "{{count}} projetos",
+  "summary": "Você tem {{portfolios}} e {{projects}}.",
+  "summaryUnavailable": "Não foi possível calcular os totais agora.",
+  "recentPortfolios": "Portfólios atualizados recentemente",
+  "recentProjects": "Projetos atualizados recentemente",
+  "newPortfolio": "Novo portfólio",
+  "newProject": "Novo projeto",
+  "loadError": "Não foi possível carregar o painel.",
+  "empty": {
+    "title": "Comece pelo primeiro portfólio",
+    "description": "Um portfólio agrupa projetos com o mesmo propósito, como “Design de produto” ou “Freelas”. Depois de criá-lo, adicione projetos a ele.",
+    "action": "Criar portfólio"
+  },
+  "noProjects": {
+    "title": "Nenhum projeto ainda",
+    "description": "Adicione o primeiro projeto a um dos seus portfólios.",
+    "action": "Adicionar projeto"
+  }
+}

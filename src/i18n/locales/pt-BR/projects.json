@@ -1,0 +1,63 @@
+{
+  "list": {
+    "title": "Projetos",
+    "description": "Todos os seus projetos, de todos os portfólios.",
+    "new": "Novo projeto",
+    "filterLabel": "Portfólio",
+    "filterAll": "Todos os portfólios",
+    "loadError": "Não foi possível carregar os projetos.",
+    "reorderFailed": "Não foi possível alterar a ordem. Tente novamente.",
+    "empty": {
+      "title": "Nenhum projeto ainda",
+      "description": "Adicione um projeto a um dos seus portfólios.",
+      "action": "Adicionar projeto"
+    },
+    "emptyFiltered": "Nenhum projeto neste portfólio."
+  },
+  "item": {
+    "open": "Abrir {{name}}",
+    "inPortfolio": "em {{name}}"
+  },
+  "detail": {
+    "loadError": "Não foi possível carregar este projeto.",
+    "notFound": "Este projeto não existe ou foi excluído.",
+    "portfolio": "Portfólio",
+    "externalLink": "Abrir link do projeto",
+    "gallery": "Imagens",
+    "noDescription": "Sem descrição.",
+    "backToList": "Todos os projetos"
+  },
+  "form": {
+    "createTitle": "Novo projeto",
+    "editTitle": "Editar projeto",
+    "portfolio": "Portfólio",
+    "portfolioPlaceholder": "Selecione um portfólio",
+    "name": "Nome",
+    "namePlaceholder": "Ex.: Redesign do app de reservas",
+    "description": "Descrição",
+    "descriptionHint": "Opcional. Até {{max}} caracteres.",
+    "externalUrl": "Link externo",
+    "externalUrlHint": "Opcional. Site publicado, repositório ou estudo de caso.",
+    "cover": "Imagem de capa",
+    "gallery": "Imagens adicionais",
+    "submitCreate": "Criar projeto",
+    "submitEdit": "Salvar alterações"
+  },
+  "noPortfolios": {
+    "title": "Crie um portfólio primeiro",
+    "description": "Todo projeto pertence a um portfólio.",
+    "action": "Criar portfólio"
+  },
+  "delete": {
+    "action": "Excluir projeto",
+    "title": "Excluir “{{name}}”?",
+    "description": "O projeto e todas as suas imagens serão excluídos permanentemente. Essa ação não pode ser desfeita.",
+    "confirm": "Excluir projeto"
+  },
+  "toast": {
+    "created": "Projeto criado.",
+    "updated": "Alterações salvas.",
+    "deleted": "Projeto excluído.",
+    "imagesNotRemoved": "As alterações foram salvas, mas algumas imagens antigas não puderam ser apagadas."
+  }
+}

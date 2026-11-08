@@ -1,0 +1,96 @@
+rules_version = '2';
+
+// Security Rules do Cloud Firestore — Portfolio Manager.
+// Princípios: negar por padrão; dados privados isolados por UID no caminho;
+// validação de campos, tipos e propriedade. Documentação: docs/SEGURANCA.md.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    // Referência a imagem: null ou { path, url } com path dentro da pasta do próprio usuário.
+    function isValidImageRef(image, uid) {
+      return image == null || (
+        image is map
+        && image.keys().hasOnly(['path', 'url'])
+        && image.keys().hasAll(['path', 'url'])
+        && image.path is string
+        && image.path.matches('users/' + uid + '/(portfolios|projects)/[^/]+/[^/]+')
+        && image.url is string
+        && image.url.size() <= 2048
+      );
+    }
+
+    // updatedAt deve ser o horário do servidor, exceto em reordenação pura (só sortOrder muda),
+    // para que reordenar não altere a lista de "atualizados recentemente".
+    function hasValidUpdatedAt() {
+      return request.resource.data.updatedAt == request.time
+        || (
+          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['sortOrder'])
+        );
+    }
+
+    function isValidPortfolio(data, uid) {
+      return data.keys().hasOnly(['ownerId', 'name', 'description', 'coverImage', 'sortOrder', 'createdAt', 'updatedAt'])
+        && data.keys().hasAll(['ownerId', 'name', 'description', 'coverImage', 'sortOrder', 'createdAt', 'updatedAt'])
+        && data.ownerId == uid
+        && data.name is string && data.name.size() >= 1 && data.name.size() <= 100
+        && data.description is string && data.description.size() <= 2000
+        && isValidImageRef(data.coverImage, uid)
+        && data.sortOrder is number
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    function isValidProject(data, uid) {
+      return data.keys().hasOnly(['ownerId', 'portfolioId', 'name', 'description', 'coverImage', 'images', 'externalUrl', 'sortOrder', 'createdAt', 'updatedAt'])
+        && data.keys().hasAll(['ownerId', 'portfolioId', 'name', 'description', 'coverImage', 'images', 'externalUrl', 'sortOrder', 'createdAt', 'updatedAt'])
+        && data.ownerId == uid
+        && data.portfolioId is string && data.portfolioId.size() > 0
+        // O portfólio precisa existir sob o MESMO usuário: impede vincular a portfólio de terceiros.
+        && exists(/databases/$(database)/documents/users/$(uid)/portfolios/$(data.portfolioId))
+        && data.name is string && data.name.size() >= 1 && data.name.size() <= 120
+        && data.description is string && data.description.size() <= 5000
+        && isValidImageRef(data.coverImage, uid)
+        && data.images is list && data.images.size() <= 8
+        && (data.externalUrl == null || (
+          data.externalUrl is string
+          && data.externalUrl.size() <= 2048
+          && data.externalUrl.matches('https?://.+')
+        ))
+        && data.sortOrder is number
+        && data.createdAt is timestamp
+        && data.updatedAt is timestamp;
+    }
+
+    match /users/{uid}/portfolios/{portfolioId} {
+      allow read: if isOwner(uid);
+      allow create: if isOwner(uid)
+        && isValidPortfolio(request.resource.data, uid)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+      allow update: if isOwner(uid)
+        && isValidPortfolio(request.resource.data, uid)
+        && request.resource.data.createdAt == resource.data.createdAt
+        && hasValidUpdatedAt();
+      allow delete: if isOwner(uid);
+    }
+
+    match /users/{uid}/projects/{projectId} {
+      allow read: if isOwner(uid);
+      allow create: if isOwner(uid)
+        && isValidProject(request.resource.data, uid)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+      allow update: if isOwner(uid)
+        && isValidProject(request.resource.data, uid)
+        && request.resource.data.createdAt == resource.data.createdAt
+        && hasValidUpdatedAt();
+      allow delete: if isOwner(uid);
+    }
+
+    // Qualquer outro caminho é negado implicitamente (sem regra = sem acesso).
+  }
+}
